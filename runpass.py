@@ -36,7 +36,6 @@ for week in range(1, 17):
         # Drive data and results
         prev_play = None
         api_response = api_plays_instance.get_plays(year, team=team, offense=team, week=week)
-        print(api_response)
         for play in api_response:
             # set current play
             if "pass" in play.play_type.lower():
@@ -58,7 +57,7 @@ for week in range(1, 17):
     except ApiException as e:
         print("Exception when calling DrivesApi->get_drives: %s\n" % e)
         break
-    
+
 print("The previous play was a pass")
 print("Number of rushes after a pass:", throw["run"])
 print("Number of passes after a pass:", throw["throw"])
